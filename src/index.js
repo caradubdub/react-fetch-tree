@@ -4,16 +4,6 @@ import { fetchUser, fetchPosts } from "./fakeApi";
 import { findNodeByComponentName, Utils } from "react-fiber-traverse";
 import Tree from "react-d3-tree";
 
-console.log("ran");
-function Fetchtree() {
-  return (
-    // `<Tree />` will fill width/height of its container; in this case `#treeWrapper`.
-    <div id="treeWrapper" style={{ width: "80vw", height: "20vh" }}>
-      <Tree data={orgChart} orientation={"vertical"} />
-    </div>
-  );
-}
-
 function ProfilePage() {
   const [user, setUser] = useState(null);
   const [character, setCharacter] = useState(1);
@@ -62,7 +52,6 @@ function ProfileTimeline(props) {
           <li key={idx}>{post}</li>
         ))}
       </ul>
-      <Fetchtree />
     </div>
   );
 }
@@ -70,13 +59,13 @@ function ProfileTimeline(props) {
 const rootElement = document.getElementById("root");
 render(<ProfilePage />, rootElement);
 
-// console.log(rootElement);
+console.log(rootElement);
 
-// let fiberDOM = rootElement._reactRootContainer._internalRoot;
-// console.log("fiberDOM", fiberDOM);
+let fiberDOM = rootElement._reactRootContainer._internalRoot;
+console.log("fiberDOM", fiberDOM);
 
-// let treedata = { name: "App", children: [] };
-//console.log("sibling", fiberDOM.current.child.child.sibling);
+let treedata = { name: "App", children: [] };
+console.log("sibling", fiberDOM.current.child.child.sibling);
 
 const fiberwalker = (node, treedata = { name: "App", children: [] }) => {
   if (node.child.sibling) {

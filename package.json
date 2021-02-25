@@ -5,7 +5,12 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "@reactfetchtree/rft": "^2.0.0",
+    "@babel/parser": "^7.12.16",
+    "@babel/traverse": "^7.12.13",
+    "@reactfetchtree/rft": "^1.5.1",
+    "apollo-epoch": "^0.1.4",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
     "react": "^17.0.1",
     "react-d3-tree": "^2.0.1",
     "react-dom": "0.0.0-experimental-5faf377df",
@@ -18,6 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "tree": "npm explore @reactfetchtree/rft -- npm run fetch-tree",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
